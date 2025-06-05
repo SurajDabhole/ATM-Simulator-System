@@ -12,12 +12,12 @@ bin/
 *.tmp
 *.bak
 
-# OS junk
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# If you're using Maven
+# Maven build folder (if you use Maven)
 target/
 
-# VS Code settings (if you use it)
+# VS Code settings (if you use VS Code)
 .vscode/
