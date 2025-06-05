@@ -16,8 +16,8 @@ bin/
 .DS_Store
 Thumbs.db
 
-# Maven build folder (if you use Maven)
+# Maven build folder 
 target/
 
-# VS Code settings (if you use VS Code)
+# VS Code settings 
 .vscode/
