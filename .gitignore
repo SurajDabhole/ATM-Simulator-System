@@ -1,0 +1,23 @@
+# Compiled class files
+bin/
+*.class
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# If you're using Maven
+target/
+
+# VS Code settings (if you use it)
+.vscode/
