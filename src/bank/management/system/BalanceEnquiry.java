@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import java.awt.Image;
 import java.awt.event.*;
-import java.sql.*;
+//import java.sql.*;
 import java.awt.*;
 
 public class BalanceEnquiry extends JFrame implements ActionListener{
@@ -32,23 +32,28 @@ public class BalanceEnquiry extends JFrame implements ActionListener{
 		back.addActionListener(this);
 		image.add(back);
 		
-		Conn c = new Conn();
+//		Conn c = new Conn();
+//		
+//		int balance = 0;
+//		try {
+//			ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pinNumber+"'");
+//			while(rs.next()) {
+//				if(rs.getString("type").equals("Deposit")) {
+//					balance += Integer.parseInt(rs.getString("amount"));
+//				}
+//				else {
+//					balance -= Integer.parseInt(rs.getString("amount"));
+//				}
+//			}
+//		}
+//		catch(Exception e) {
+//			System.out.println(e);
+//		}
 		
-		int balance = 0;
-		try {
-			ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pinNumber+"'");
-			while(rs.next()) {
-				if(rs.getString("type").equals("Deposit")) {
-					balance += Integer.parseInt(rs.getString("amount"));
-				}
-				else {
-					balance -= Integer.parseInt(rs.getString("amount"));
-				}
-			}
-		}
-		catch(Exception e) {
-			System.out.println(e);
-		}
+		// modularized code to avoid repetition of the same logic, here i needed to check available balance in three
+//		different classes , so i made a seperate class/module to get the balance 
+		GetBalance gb = new GetBalance();
+		int balance = gb.balanceCheck(pinNumber);
 		
 		JLabel text = new JLabel("Your current account balance is Rs "+balance);
 		text.setForeground(Color.white);

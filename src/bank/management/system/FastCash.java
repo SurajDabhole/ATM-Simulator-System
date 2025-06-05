@@ -79,7 +79,7 @@ public class FastCash extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae) {
 		if(ae.getSource() == back) {
-			setVisible(true);
+			setVisible(false);
 			new Transactions(pinNumber).setVisible(true);
 		} 
 		else{

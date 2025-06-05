@@ -63,11 +63,20 @@ public class Withdrawl extends JFrame implements ActionListener{
 			else {
 				try {
 					Conn conn = new Conn();
-					String query = "insert into bank values('"+pinNumber+"','"+date+"','Withdrawl','"+number+"')";
-					conn.s.executeUpdate(query);
-					JOptionPane.showMessageDialog(null, "Rs "+ number + " withdraw successfully");
-					setVisible(false);
-					new Transactions(pinNumber).setVisible(true);
+					GetBalance gb = new GetBalance();
+					int balance = gb.balanceCheck(pinNumber);
+					int amount = Integer.parseInt(number);
+					if(balance - amount < 0) {
+						JOptionPane.showMessageDialog(null, "Insufficient Balance");
+						return;
+					}
+					else {
+						String query = "insert into bank values('"+pinNumber+"','"+date+"','Withdrawl','"+number+"')";
+						conn.s.executeUpdate(query);
+						JOptionPane.showMessageDialog(null, "Rs "+ number + " withdraw successfully");
+						setVisible(false);
+						new Transactions(pinNumber).setVisible(true);
+					}
 				}
 				catch(Exception e) {
 					System.out.println(e);
