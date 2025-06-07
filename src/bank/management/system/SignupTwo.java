@@ -219,3 +219,8 @@ public class SignupTwo extends JFrame implements ActionListener{
 		new SignupTwo("");
 	}
 }
+
+
+/*
+ * This file mostly contains the creation of dropdowns and buttons and to get some addtional info. about customer
+ */

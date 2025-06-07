@@ -88,14 +88,14 @@ public class Login extends JFrame implements ActionListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Fix: Close operation
 	}
 	
-	// overwriting the abstract methods of ActionListener interface
+	// overriding the abstract methods of ActionListener interface
 	public void actionPerformed(ActionEvent ae) {
 		// clears the contents of input field upon the click on clear button
-		if(ae.getSource() == clear) {
+		if(ae.getSource() == clear) {	// true when clear button is clicked
 			cardTextField.setText(""); 
 			pinTextField.setText("");
 		} 
-		else if(ae.getSource() == login) {
+		else if(ae.getSource() == login) {	// true when login button is clicked
 			Conn conn = new Conn();
 			
 			String cardNumber = cardTextField.getText();
@@ -108,11 +108,11 @@ public class Login extends JFrame implements ActionListener{
 			try {
 				ResultSet rs = conn.s.executeQuery(query); // we are running ddl command this time
 				
-				if(rs.next()) {
-					setVisible(false);
-					new Transactions(pinNumber).setVisible(true);
+				if(rs.next()) {		// if query returns some result, i.e user exists , so log the user in
+					setVisible(false);		// changes the visibility of login frame to false
+					new Transactions(pinNumber).setVisible(true);	// and opens transaction frame , where we are passing pinNumber to the constructor of transaction class
 				}
-				else {
+				else {	// if entered id or password is incorrect, it shows the warning
 					JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
 				}
 			}
@@ -120,7 +120,7 @@ public class Login extends JFrame implements ActionListener{
 				System.out.println(e);
 			}
 		} 
-		else if(ae.getSource() == signup) {
+		else if(ae.getSource() == signup) {		// returns true if singup button is clicked	
 			setVisible(false);
 			new SignupOne().setVisible(true);
 		}
@@ -130,3 +130,11 @@ public class Login extends JFrame implements ActionListener{
 		new Login(); // making an object of the class 		
 	}
 }
+
+
+
+/*
+ * This is the start of the project flow
+ * The login page is opened , if user has account already , he logs in using that instead he does the signup process
+ * 
+ */

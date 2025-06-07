@@ -226,7 +226,7 @@ public class SignupOne extends JFrame implements ActionListener{
  				JOptionPane.showMessageDialog(null, "Pin code is required");
  			} else {
  				Conn c = new Conn();
- 				String query = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+state+"','"+pinCode+"')";
+ 				String query = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pinCode+"','"+state+"')";
  				c.s.executeUpdate(query);
  				
  				setVisible(false);
